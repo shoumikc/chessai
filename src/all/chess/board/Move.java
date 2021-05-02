@@ -10,6 +10,7 @@ public class Move {
         this.piece = pieceToMove;
         this.destination = destination;
     }
+
     static class AttackMove extends Move{
         AttackMove(Piece pieceToMove, int destination) {
             super(pieceToMove, destination);

@@ -12,7 +12,6 @@ public class Knight extends Piece {
     }
     @Override
     public HashSet<Move> legalMoves(Board board){
-
-
+        
     }
 }
