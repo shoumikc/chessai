@@ -8,14 +8,18 @@ import all.chess.board.Move;
 import java.util.HashSet;
 
 public abstract class Piece {
-    protected final int coordinates;
+    protected final int[] coordinate;
     protected final Color team;
 
-    Piece(int coordinate, Color team) {
-        this.coordinates = coordinate;
+    Piece(int[] coordinate, Color team) {
+        this.coordinate = coordinate;
         this.team = team;
     }
     /** Returns hashset of legal moves from current board */
     public abstract HashSet<Move> legalMoves(Board board);
+    /** Returns color of piece */
+    public Color getTeam(){
+        return this.team;
+    }
     
 }
