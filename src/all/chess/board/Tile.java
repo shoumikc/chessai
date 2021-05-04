@@ -18,7 +18,7 @@ public class Tile {
     public int[] coordinate(){ // coordinate getter
         return this.coordinate;
     }
-    public Piece piece(){ // piece getter
+    public Piece getPiece(){ // piece getter
         return this.piece;
     }
     public boolean isEmpty(){
