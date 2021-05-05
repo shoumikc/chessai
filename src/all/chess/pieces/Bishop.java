@@ -20,7 +20,7 @@ public class Bishop extends Piece {
         moves.addAll(diagonalTraverser(board, row, col, 1, -1)); //bottomleft
         return moves;
     }
-
+    /* Helper method for Bishop that traverses all 4 diagonals */
     private ArrayList<Move> diagonalTraverser(Board board, int row, int col, int rowOffset, int colOffset) {
         ArrayList<Move> moves = new ArrayList<>();
         int newRow = row + rowOffset;
