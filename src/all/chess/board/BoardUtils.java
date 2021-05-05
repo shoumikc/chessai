@@ -17,6 +17,11 @@ public class BoardUtils {
         int col = getCol(coordinate);
         return (row < MAX_ROW && row >= 0 && col < MAX_COL & col >= 0);
     }
+    /** Same as above, but doesnt require arr format */
+    public static boolean isValidCoordinate(int row, int col){
+        int[] arr = {row, col};
+        return isValidCoordinate(arr);
+    }
 
 
 }
