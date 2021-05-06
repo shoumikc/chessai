@@ -24,7 +24,9 @@ public class Tile {
     public boolean isEmpty(){
         return this.piece == null;
     }
-    public static Tile newTile(int[] coordinate, Piece piece) { // constructor
+    public boolean isOccupied() {return this.piece != null;}
+
+    public static Tile newTile(int[] coordinate, Piece piece) { // can i delete this???
         Tile result;
         if (piece == null){
             result = new Tile(coordinate);
