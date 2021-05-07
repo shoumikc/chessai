@@ -38,7 +38,7 @@ public class Bishop extends Piece {
                     AttackMove toAdd = new AttackMove(board, this, destinationCoord, potentialVictim);
                     set.add(toAdd);
                 }
-                break;
+                break; // can't jump pieces, so we must break at the occurance of an obstacle
             }
         }
     }
