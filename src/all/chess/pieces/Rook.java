@@ -1,12 +1,12 @@
 package all.chess.pieces;
 
-import all.chess.Color;
+import all.chess.Team;
 import all.chess.board.*;
 
 import java.util.HashSet;
 
 public class Rook extends Piece{
-    Rook(int[] coordinate, Color team) {
+    public Rook(int[] coordinate, Team team) {
         super(coordinate, team);
     }
 

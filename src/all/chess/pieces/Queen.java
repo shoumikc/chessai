@@ -1,12 +1,12 @@
 package all.chess.pieces;
 
-import all.chess.Color;
+import all.chess.Team;
 import all.chess.board.*;
 
 import java.util.HashSet;
 
 public class Queen extends Piece {
-    Queen(int[] coordinate, Color team) {
+    public Queen(int[] coordinate, Team team) {
         super(coordinate, team);
     }
 

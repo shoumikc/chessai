@@ -1,7 +1,7 @@
 /* Created by Shoumik Chaudhuri on 4/20/2021 */
 package all.chess.pieces;
 
-import all.chess.Color;
+import all.chess.Team;
 import all.chess.board.Board;
 import all.chess.board.BoardUtils;
 import all.chess.board.Move;
@@ -10,11 +10,11 @@ import java.util.HashSet;
 
 public abstract class Piece {
     protected final int[] coordinate;
-    protected final Color team;
+    protected final Team team;
     protected final int row;
     protected final int col;
 
-    Piece(int[] coordinate, Color team) {
+    Piece(int[] coordinate, Team team) {
         this.coordinate = coordinate;
         this.team = team;
         this.row = BoardUtils.getRow(this.coordinate);
@@ -30,7 +30,7 @@ public abstract class Piece {
     /** Returns col coord of piece */
     public int getCol() {return col;}
     /** Returns color of piece */
-    public Color getTeam(){return team;}
+    public Team getTeam(){return team;}
 
     
 }

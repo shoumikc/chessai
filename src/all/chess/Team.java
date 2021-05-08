@@ -1,9 +1,9 @@
 package all.chess;
 
-public enum Color {
+public enum Team {
     BLACK, WHITE;
 
-    public static Color getOpposite(Color team){
+    public static Team getOpposite(Team team){
         if (team == WHITE){
             return BLACK;
         } else{

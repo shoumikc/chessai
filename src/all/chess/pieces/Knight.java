@@ -1,12 +1,12 @@
 package all.chess.pieces;
 
-import all.chess.Color;
+import all.chess.Team;
 import all.chess.board.*;
 
 import java.util.HashSet;
 
 public class Knight extends Piece {
-    Knight(int[] coordinate, Color team){
+    public Knight(int[] coordinate, Team team){
         super(coordinate, team);
     }
     /** returns HashSet of legal moves given a Board */
@@ -26,7 +26,7 @@ public class Knight extends Piece {
                     toAdd = new Move(board, this, newCoordinate);
                 } else {
                     Piece destinationPiece = destinationTile.getPiece();
-                    Color destinationTeam = destinationPiece.getTeam();
+                    Team destinationTeam = destinationPiece.getTeam();
                     if (destinationTeam != this.getTeam()) {
                         toAdd = new AttackMove(board, this, newCoordinate, destinationPiece);
                     }

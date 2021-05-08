@@ -1,13 +1,12 @@
 package all.chess.pieces;
 
-import all.chess.Color;
+import all.chess.Team;
 import all.chess.board.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Bishop extends Piece {
-    Bishop(int[] coordinate, Color team) {
+    public Bishop(int[] coordinate, Team team) {
         super(coordinate, team);
     }
 
