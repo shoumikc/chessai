@@ -19,6 +19,12 @@ public class Bishop extends Piece {
         diagonalTraverser(moves, board, 1, -1); //bottomleft
         return moves;
     }
+
+    @Override
+    public String toString() {
+        return "B";
+    }
+
     /** Helper method for Bishop that traverses all 4 diagonals */
     private void diagonalTraverser(HashSet<Move> set, Board board, int rowOffset, int colOffset) {
         int newRow = row + rowOffset;

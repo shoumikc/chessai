@@ -23,6 +23,11 @@ public class Queen extends Piece {
         horizontalTraverser(moves, board, 0,-1); // left
         return moves;
     }
+
+    @Override
+    public String toString() {
+        return "Q";
+    }
     /* Recognize that Queen is essentially a combination of
     Rook and Bishop, so we can just copy/paste diagonalTraverser
     and horizontalTraverser.

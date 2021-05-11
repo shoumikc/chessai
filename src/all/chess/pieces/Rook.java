@@ -19,6 +19,12 @@ public class Rook extends Piece{
         horizontalTraverser(moves, board, 0,-1); // left
         return moves;
     }
+
+    @Override
+    public String toString() {
+        return "R";
+    }
+
     /** Helper method for Rook that traverses all 4 horizontals */
     private void horizontalTraverser(HashSet<Move> set, Board board, int rowOffset, int colOffset){
         int newRow = row + rowOffset;

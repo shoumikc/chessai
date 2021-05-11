@@ -23,6 +23,8 @@ public abstract class Piece {
 
     /** Returns hashset of legal moves from current board */
     public abstract HashSet<Move> legalMoves(Board board);
+    /** Returns string reprsentation of Piece */
+    public abstract String toString();
     /** Returns coordinates of piece */
     public int[] getCoordinate(){return coordinate;}
     /** Returns row coord of piece */

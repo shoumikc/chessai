@@ -6,7 +6,7 @@ import all.chess.pieces.*;
 public class Board {
     /** Builder pattern used to return Board object;
      * Builder must be used to create boards */
-    public static class BoardBuilder{
+    public static class BoardBuilder {
         Team nextMover;
         Piece[][] boardLayout = new Piece[8][8];
         public BoardBuilder(){}
