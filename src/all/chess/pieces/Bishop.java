@@ -22,6 +22,9 @@ public class Bishop extends Piece {
 
     @Override
     public String toString() {
+        if (team == Team.BLACK){
+            return "b";
+        }
         return "B";
     }
 

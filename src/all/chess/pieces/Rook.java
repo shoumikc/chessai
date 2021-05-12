@@ -22,6 +22,9 @@ public class Rook extends Piece{
 
     @Override
     public String toString() {
+        if (team == Team.BLACK){
+            return "r";
+        }
         return "R";
     }
 

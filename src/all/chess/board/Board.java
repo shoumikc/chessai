@@ -3,6 +3,9 @@ package all.chess.board;
 import all.chess.Team;
 import all.chess.pieces.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+
 public class Board {
     /** Builder pattern used to return Board object;
      * Builder must be used to create boards */
@@ -24,8 +27,17 @@ public class Board {
             return new Board(this);
         }
     }
-
+    /** board is 8x8 matrix, each element has a Tile */
     private final Tile[][] board = new Tile[8][8];
+    /** list of all current white pieces */
+    private ArrayList<Piece> whitePieces;
+    /** list of all currente black pieces */
+    private ArrayList<Piece> blackPieces;
+    /** set of all white legal moves */
+    HashSet<Move> whiteMoves;
+    /** set of all black legal moves */
+    HashSet<Move> blackMoves;
+
     /** Private constructor since u must use BoardBuilder */
     private Board(BoardBuilder builder){
         Piece[][] layout = builder.boardLayout;
@@ -35,9 +47,37 @@ public class Board {
                 board[i][j] = new Tile(coordinate, layout[i][j]);
             }
         }
+        whitePieces = getPieces(Team.WHITE);
+        blackPieces = getPieces(Team.BLACK);
+
+        whiteMoves = getTeamMoves(whitePieces);
+        blackMoves = getTeamMoves(blackPieces);
     }
+    /** Returns list of pieces on board given a team */
+    private ArrayList<Piece> getPieces(Team team){
+        ArrayList<Piece> result = new ArrayList<>();
+        for (int i = 0; i < 8; i++){
+            for (int j = 0; j < 8; j++){
+                Tile tile = board[i][j];
+                if (tile.isOccupied() && tile.getPiece().getTeam() == team){
+                    result.add(tile.getPiece());
+                }
+            }
+        }
+        return result;
+    }
+    /** Returns set of all legal moves for given team pieces */
+    private HashSet<Move> getTeamMoves(ArrayList<Piece> pieceList){
+        HashSet<Move> moves = new HashSet<>();
+        for (Piece piece : pieceList){
+            HashSet<Move> currentMoves = piece.legalMoves(this);
+            moves.addAll(currentMoves);
+        }
+        return moves;
+    }
+
     /** Builds and returns the standard starting board */
-    public Board createStartingBoard(){
+    static public Board createStartingBoard(){
         BoardBuilder builder = new BoardBuilder();
         // WHITE PIECES
         // taking care of Pawn row:
@@ -73,11 +113,29 @@ public class Board {
         return builder.build();
     }
 
-
-
     public Tile getTile(int[] coordinate){
         int row = coordinate[0];
         int col = coordinate[1];
         return board[row][col];
+    }
+
+    @Override
+    public String toString(){
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < 8; i++){
+            for (int j = 0; j < 8; j++){
+                Tile tile = board[i][j];
+                if (tile.isEmpty()){
+                    builder.append("- ");
+                } else {
+                    Piece piece = tile.getPiece();
+                    builder.append(piece.toString()).append(" ");
+                }
+                if (j == 7){
+                    builder.append("\n");
+                }
+            }
+        }
+        return builder.toString();
     }
 }

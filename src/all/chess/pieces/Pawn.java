@@ -81,6 +81,9 @@ public class Pawn extends Piece {
 
     @Override
     public String toString() {
+        if (team == Team.BLACK){
+            return "p";
+        }
         return "P";
     }
 }

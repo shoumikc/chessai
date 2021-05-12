@@ -26,6 +26,9 @@ public class Queen extends Piece {
 
     @Override
     public String toString() {
+        if (team == Team.BLACK){
+            return "q";
+        }
         return "Q";
     }
     /* Recognize that Queen is essentially a combination of

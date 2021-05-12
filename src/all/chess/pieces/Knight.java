@@ -41,6 +41,9 @@ public class Knight extends Piece {
 
     @Override
     public String toString() {
+        if (team == Team.BLACK){
+            return "n";
+        }
         return "N";
     }
 

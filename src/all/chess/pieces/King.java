@@ -39,6 +39,9 @@ public class King extends Piece {
 
     @Override
     public String toString() {
+        if (team == Team.BLACK){
+            return "k";
+        }
         return "K";
     }
 }
