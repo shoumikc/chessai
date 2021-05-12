@@ -2,6 +2,8 @@ package all.chess.board;
 
 import all.chess.Team;
 import all.chess.pieces.*;
+import all.chess.player.BlackPlayer;
+import all.chess.player.WhitePlayer;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -37,6 +39,8 @@ public class Board {
     HashSet<Move> whiteMoves;
     /** set of all black legal moves */
     HashSet<Move> blackMoves;
+    WhitePlayer whitePlayer;
+    BlackPlayer blackPlayer;
 
     /** Private constructor since u must use BoardBuilder */
     private Board(BoardBuilder builder){
@@ -52,6 +56,11 @@ public class Board {
 
         whiteMoves = getTeamMoves(whitePieces);
         blackMoves = getTeamMoves(blackPieces);
+
+        whitePlayer = new WhitePlayer(this, whiteMoves, blackMoves);
+        blackPlayer = new BlackPlayer(this, blackMoves, whiteMoves);
+
+
     }
     /** Returns list of pieces on board given a team */
     private ArrayList<Piece> getPieces(Team team){
